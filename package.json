@@ -8,10 +8,10 @@
   "homepage": "https://signalfuse.co/divigent",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_ORG/signalfuse-divigent-router.git"
+    "url": "git+https://github.com/hypeprinter007-stack/signalfuse-divigent-router.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_ORG/signalfuse-divigent-router/issues"
+    "url": "https://github.com/hypeprinter007-stack/signalfuse-divigent-router/issues"
   },
   "keywords": [
     "divigent",

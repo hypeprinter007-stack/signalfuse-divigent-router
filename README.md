@@ -75,7 +75,7 @@ Requirements: Node 20+, a Base mainnet RPC URL (Alchemy / QuickNode / Coinbase
 Developer Platform), and the private key for your x402 receiving wallet.
 
 ```bash
-git clone https://github.com/YOUR_ORG/signalfuse-divigent-router
+git clone https://github.com/hypeprinter007-stack/signalfuse-divigent-router
 cd signalfuse-divigent-router
 npm install
 
