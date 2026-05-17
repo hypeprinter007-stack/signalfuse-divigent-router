@@ -1,0 +1,50 @@
+{
+  "name": "signalfuse-divigent-router",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Seller-side sidecar for routing idle x402 USDC into Divigent yield on Base mainnet. Built by SignalFuse for the Divigent protocol.",
+  "license": "Apache-2.0",
+  "author": "SignalFuse (https://signalfuse.co)",
+  "homepage": "https://signalfuse.co/divigent",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_ORG/signalfuse-divigent-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_ORG/signalfuse-divigent-router/issues"
+  },
+  "keywords": [
+    "divigent",
+    "x402",
+    "base",
+    "usdc",
+    "yield",
+    "seller",
+    "sidecar"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20.10"
+  },
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@divigent/sdk": "^1.0.2",
+    "@x402/core": "*",
+    "@x402/evm": "*",
+    "@x402/fetch": "*",
+    "express": "^4.19.2",
+    "viem": "^2.21.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
