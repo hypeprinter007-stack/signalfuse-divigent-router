@@ -33,7 +33,7 @@ that:
 - Survives a `launchd` / `systemd` restart cleanly
 
 It's also a record of the integration gotchas. If you're rolling your own,
-read [`docs/lessons.md`](docs/lessons.md) (TODO) first.
+read [`docs/lessons.md`](docs/lessons.md) first.
 
 ---
 
@@ -210,10 +210,17 @@ Read them before deploying:
 
 ### Security audit
 
-A 15-finding security audit was performed against this codebase pre-launch.
-Findings were addressed in [PR history](#) (TODO link); accepted constraints:
-- Wallet private key lives in Node process memory — architectural mitigation requires a hardware wallet or remote signer.
-- `esbuild`'s `postinstall` downloads a native binary (industry standard; mitigated by committed lockfile + `npm ci` in CI).
+A 15-finding security audit was performed against this codebase pre-launch
+covering: secret handling, auth + rate limits, input validation, response
+headers (HSTS / CSP / X-Frame / X-Content-Type / Referrer / Permissions-Policy),
+log file permissions, dependency tree (`npm audit` clean), CORS surface,
+timing-safe comparisons, and supply chain. Findings were addressed before
+the initial public release. Accepted constraints:
+
+- Wallet private key lives in Node process memory — architectural mitigation
+  requires a hardware wallet or remote signer.
+- `esbuild`'s `postinstall` downloads a native binary (industry standard;
+  mitigated by committed lockfile + `npm ci` in CI).
 
 ---
 
@@ -232,7 +239,7 @@ CI (GitHub Actions) runs `npm ci && npm run typecheck && npm audit --audit-level
 
 ## Deploying on macOS via launchd
 
-Sample plist in `examples/com.example.divigent-router.plist` (TODO).
+Sample plist in [`examples/com.example.divigent-router.plist`](examples/com.example.divigent-router.plist).
 Loads with:
 
 ```bash

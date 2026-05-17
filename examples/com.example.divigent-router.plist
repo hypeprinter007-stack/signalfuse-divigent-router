@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Example launchd plist for running the sidecar as a user-level LaunchAgent on
+  macOS. Replace every /path/to/... below with absolute paths matching your
+  install location, then:
+
+    cp examples/com.example.divigent-router.plist ~/Library/LaunchAgents/
+    launchctl load -w ~/Library/LaunchAgents/com.example.divigent-router.plist
+    launchctl list | grep divigent-router
+
+  Stop with:
+    launchctl unload -w ~/Library/LaunchAgents/com.example.divigent-router.plist
+
+  KeepAlive=true + ThrottleInterval=30 prevents crashloop spam while keeping
+  the process alive across normal crashes. RunAtLoad=true means it starts on
+  every login.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.divigent-router</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- absolute path to the node binary (homebrew default shown) -->
+        <string>/opt/homebrew/bin/node</string>
+        <!-- absolute path to this checkout's tsx CLI -->
+        <string>/path/to/signalfuse-divigent-router/node_modules/tsx/dist/cli.mjs</string>
+        <string>--env-file=.env</string>
+        <string>src/index.ts</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/path/to/signalfuse-divigent-router</string>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- launchd creates these files with the user's umask; the sidecar
+         chmod 600's the path passed via LOG_PATH on boot. -->
+    <key>StandardOutPath</key>
+    <string>/path/to/divigent-router.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/path/to/divigent-router.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>NODE_ENV</key>
+        <string>production</string>
+        <key>LOG_PATH</key>
+        <string>/path/to/divigent-router.log</string>
+    </dict>
+
+    <!-- Don't relaunch faster than every 30s on crash. -->
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+</dict>
+</plist>
