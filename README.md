@@ -1,6 +1,6 @@
 # signalfuse-divigent-router
 
-> Seller-side sidecar for routing idle x402 USDC into [Divigent](https://divigent.com) yield on Base mainnet. Built by [SignalFuse](https://signalfuse.co) for the Divigent protocol.
+> Seller-side sidecar for routing idle x402 USDC into [Divigent](https://divigent.ai) yield on Base mainnet. Built by [SignalFuse](https://signalfuse.co) for the Divigent protocol.
 
 [![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-43853d.svg)](.nvmrc)
@@ -258,7 +258,7 @@ Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
 ## Acknowledgements
 
-- The [Divigent](https://divigent.com) protocol and SDK team for the
+- The [Divigent](https://divigent.ai) protocol and SDK team for the
   on-chain plumbing and patch responsiveness during integration.
 - The [x402](https://x402.org) Foundation for the payment standard.
 - [viem](https://viem.sh) for the cleanest EVM TypeScript surface in the
