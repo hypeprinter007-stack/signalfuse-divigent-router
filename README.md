@@ -1,3 +1,5 @@
+<p align="center"><img src="signalfuse-logo.png" alt="SignalFuse" width="128" /></p>
+
 # signalfuse-divigent-router
 
 > Seller-side sidecar for routing idle x402 USDC into [Divigent](https://divigent.ai) yield on Base mainnet. Built by [SignalFuse](https://signalfuse.co) for the Divigent protocol.
